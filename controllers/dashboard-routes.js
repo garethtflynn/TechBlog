@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models/')
+const { User, Post, Comment } = require('../models')
 const withAuth = require('../../utils/auth'); 
 
 
@@ -19,7 +19,7 @@ router.get('/', withAuth, async (req, res) => {
         })
         const posts = postData.map((posts) => posts.get({ plain: true }));
 
-        res.render("dashbored", {
+        res.render("dashboard", {
           posts,
           logged_in: req.session.logged_in,
         })
